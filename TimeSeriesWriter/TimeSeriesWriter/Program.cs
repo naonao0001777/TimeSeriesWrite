@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TimeSeriesWriter
 {
@@ -13,6 +14,12 @@ namespace TimeSeriesWriter
             try
             {
                 string[] timeSeparate = Console.ReadLine().Split(':');
+                
+                //string fileName = @"\test.txt";
+                //string directryPath = @"C:\temp";
+                //string fileFullPath = string.Concat(directryPath,fileName);
+
+                //StreamWriter sw = new StreamWriter(fileFullPath,true,Encoding.GetEncoding("Shift-jis"));
 
                 int timeHour = 0;
                 int timeMinute = 0;
@@ -34,13 +41,11 @@ namespace TimeSeriesWriter
                     timeSecond = int.Parse(timeSeparate[0]);
                 }
 
-                Console.Clear();
-
                 string minute = null;
 
                 string second = null;
 
-                for (int i = 0; i < timeMinute; i++)
+                for (int i = 0; i <= timeMinute; i++)
                 {
                     minute = i.ToString();
                     int count = 0;
