@@ -14,7 +14,7 @@ namespace TimeSeriesWriter
             try
             {
                 string[] timeSeparate = Console.ReadLine().Split(':');
-                
+                Console.Clear();
                 //string fileName = @"\test.txt";
                 //string directryPath = @"C:\temp";
                 //string fileFullPath = string.Concat(directryPath,fileName);
@@ -40,7 +40,7 @@ namespace TimeSeriesWriter
                 {
                     timeSecond = int.Parse(timeSeparate[0]);
                 }
-
+                
                 string minute = null;
 
                 string second = null;
