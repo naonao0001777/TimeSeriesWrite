@@ -14,36 +14,54 @@ namespace TimeSeriesWriter
             {
                 string[] timeSeparate = Console.ReadLine().Split(':');
 
-                int timeHour = int.Parse(timeSeparate[0]);
-                int timeMinute = int.Parse(timeSeparate[1]);
+                int timeHour = 0;
+                int timeMinute = 0;
+                int timeSecond = 0;
+
+                if (timeSeparate.Count() == 3)
+                {
+                    timeHour = int.Parse(timeSeparate[0]);
+                    timeMinute = int.Parse(timeSeparate[1]);
+                    timeSecond = int.Parse(timeSeparate[2]);
+                }
+                else if (timeSeparate.Count() == 2)
+                {
+                    timeMinute = int.Parse(timeSeparate[0]);
+                    timeSecond = int.Parse(timeSeparate[1]);
+                }
+                else
+                {
+                    timeSecond = int.Parse(timeSeparate[0]);
+                }
 
                 Console.Clear();
 
-                string hour = null;
-
                 string minute = null;
 
-                for (int i = 0; i <= timeHour; i++)
+                string second = null;
+
+                for (int i = 0; i < timeMinute; i++)
                 {
-                    hour = i.ToString();
+                    minute = i.ToString();
                     int count = 0;
 
                     for (int j = 0; j < 60; j++)
                     {
-                        if (i == timeHour && j > timeMinute)
+                        if (i == timeMinute && j > timeSecond)
                         {
                             break;
                         }
 
                         count++;
 
-                        minute = j.ToString();
+                        second = j.ToString();
+
                         if (j < 10)
                         {
-                            minute = string.Concat("0", minute);
+                            second = string.Concat("0", second);
                         }
 
-                        Console.Write(hour + ":" + minute + " ");
+                        Console.Write(minute + ":" + second + " ");
 
                         if (count % 7 == 0)
                         {
